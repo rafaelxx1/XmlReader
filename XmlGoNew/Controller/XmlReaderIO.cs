@@ -13,7 +13,6 @@ namespace XmlGoNew.Controller
     {
         public static List<Xml> getXmlData(string xmlPath)
         {
-
                     string xml = System.IO.File.ReadAllText(xmlPath);
                     byte[] byteArray = Encoding.UTF8.GetBytes(xml);
 
@@ -52,7 +51,52 @@ namespace XmlGoNew.Controller
                     return listReader;
         }
 
-      
+
+        public static List<XmlBox> ordernedXml(List<Xml> list)
+        {
+            XmlBox box = new XmlBox();
+            List<XmlBox> boxList = new List<XmlBox>();
+            foreach(Xml xml in list)
+            {
+                if(xml.id == "element1")
+                {
+                    box.type = BoxType.Skirt;
+                    box.id = xml.id;
+                    box.title = xml.title;
+                    box.module = xml.module;
+                    box.value = xml.value;
+                    box.info = xml.info;
+
+                    boxList.Add(box);
+                    box = new XmlBox();
+                }
+                if(xml.id == "element2")
+                {
+                    box.type = BoxType.Shirt;
+                    box.id = xml.id;
+                    box.title = xml.title;
+                    box.module = xml.module;
+                    box.value = xml.value;
+                    box.info = xml.info;
+
+                    boxList.Add(box);
+                    box = new XmlBox();
+                }
+                if(xml.id == "element3")
+                {
+                    box.type = BoxType.Coat;
+                    box.id = xml.id;
+                    box.title = xml.title;
+                    box.module = xml.module;
+                    box.value = xml.value;
+                    box.info = xml.info;
+
+                    boxList.Add(box);
+                    box = new XmlBox();
+                }
+            }
+            return boxList;
+        }
 
     }
 
