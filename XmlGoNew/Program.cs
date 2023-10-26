@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using XmlGoNew.Build;
 using XmlGoNew.Controller;
 using XmlGoNew.Model;
 
@@ -20,3 +21,5 @@ foreach (XmlBox element in XmlReaderIO.ordernedXml(list))
     Console.WriteLine("******************************************************");
 
 }
+
+FileXml.xmlFile();
